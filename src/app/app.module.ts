@@ -10,8 +10,7 @@ import { AppComponent } from './app.component';
 import { HeroesComponent } from './heroes/heroes.component';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { MessagesComponent } from './messages/messages.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { fromEventPattern } from 'rxjs';
+import { ProfilePreviewComponent } from './profile-preview/profile-preview.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +18,7 @@ import { fromEventPattern } from 'rxjs';
     HeroesComponent,
     HeroDetailComponent,
     MessagesComponent,
-    PageNotFoundComponent,
+    ProfilePreviewComponent,
   ],
   imports: [
     BrowserModule,

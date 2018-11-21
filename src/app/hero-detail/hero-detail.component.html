@@ -1,14 +1,37 @@
 <div *ngIf="hero">
 
-  <h2>{{hero.name | uppercase}}</h2>
-  <div><span>id: </span>{{hero.id}}</div>
-  <div>
-    <label>name:
-      <input [(ngModel)]="hero.name" placeholder="name"/>
-    </label>
+  <h4 class="d-flex justify-content-between align-items-center mb-3">
+    <span class="text-muted">Dashboard profile {{hero.name}}</span>
+    <span *ngIf="heroes" class="badge badge-secondary badge-pill">{{heroes.length}}</span>
+  </h4>
+
+  <div class="mb-3">
+    <label for="firstName">Profile name</label>
+    <input [(ngModel)]="hero.name" type="text" class="form-control" id="firstName" placeholder="" value="" required="">
+    <div class="invalid-feedback">
+      Valid profile name is required.
+    </div>
   </div>
 
-  <button (click)="goBack()">Back</button>
-  <button (click)="save()">Save</button>
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <div>
+        <button (click)="save()" type="button" class="btn btn-success">Save</button>
+        <button class="btn btn-danger" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false"
+        aria-controls="collapseExample">Delete</button>
+    </div>
+    <button routerLink="/dashboard/{{hero.id}}" type="button" class="btn btn-info">Preview</button>
+  </div>
 
+  <div class="collapse" id="collapseExample">
+    <div class="card card-body">
+      <div class="d-flex justify-content-between align-items-center">
+        <div>Are you sure you want to delete this profile?</div>
+        <div>
+          <button class="btn btn-success" type="button" data-toggle="collapse" data-target="#collapseExample"
+            aria-expanded="false" aria-controls="collapseExample">No</button>
+          <button (click)="delete(hero)" type="button" class="btn btn-danger">Yes, I want to delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

@@ -2,17 +2,16 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HeroesComponent } from './heroes/heroes.component';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-
+import { ProfilePreviewComponent } from './profile-preview/profile-preview.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/heroes', pathMatch: 'full' },
-  { path: 'heroes', component: HeroesComponent },
-  { path: 'detail/:id', component: HeroDetailComponent },
-  { path: 'detail', redirectTo: '/heroes', pathMatch: 'full' },
-
-  { path: 'not-found', component: PageNotFoundComponent },
-  { path: '**', redirectTo: '/not-found' }
+  { path: '', redirectTo: '/profiles', pathMatch: 'full' },
+  { path: 'profiles', component: HeroesComponent },
+  { path: 'profile/:id', component: HeroDetailComponent },
+  { path: 'profile', redirectTo: '/profiles', pathMatch: 'full' },
+  { path: 'dashboard/:id', component: ProfilePreviewComponent },
+  { path: 'dashboard', redirectTo: '/profiles', pathMatch: 'full' },
+  { path: '**', redirectTo: '/profiles' }
 ];
 
 @NgModule({

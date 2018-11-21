@@ -18,24 +18,20 @@ export class HeroesComponent implements OnInit {
     if (!name) {
       return;
     }
-    this.heroSerivce.addHero({ name } as Hero)
+    this.heroService.addHero({ name } as Hero)
       .subscribe(hero => {
         this.heroes.push(hero);
       })
   }
 
-  delete(hero: Hero): void {
-    this.heroes = this.heroes.filter(h => h !== hero);
-    this.heroSerivce.deleteHero(hero)
-      .subscribe();
-  }
-
   getHeroes(): void {
-    this.heroSerivce.getHeroes()
+    this.heroService.getHeroes()
       .subscribe(heroes => this.heroes = heroes);
   }
   
-  constructor(private heroSerivce: HeroService, private messageService: MessageService) { }
+  constructor(
+    private heroService: HeroService, 
+    private messageService: MessageService) { }
 
   ngOnInit() {
     this.getHeroes();
